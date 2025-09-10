@@ -25,7 +25,7 @@
 15. B fait un commit (si ré-appliqué) et pousse. Le dépôt est désormais corrigé et fonctionnel.
 
 Historique final attendu (simplifié) :
-* <HASH_REVERT> Revert "B: injection d'une ligne erronée dans textA.txt"
+* ab12cd3 Revert "B: injection d'une ligne erronée dans textA.txt"
 * 73e7144 B: ajout Dossier_B/textB2.txt (changement légitime)
 * e0fa27c B: injection d'une ligne erronée dans textA.txt
 * 330c1e5 B: ajout Dossier_B/textB.txt
