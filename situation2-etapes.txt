@@ -1,0 +1,32 @@
+[SITUATION 2] Erreur injectée, issue et retour à une version saine
+
+1. A crée le dépôt GitHub repo-gei311-lab1-partie2-2-Guilavogui_Siba.
+2. A clone localement dans partie2-2-A, crée Dossier_A/textA.txt et pousse.
+3. B (Elvis) clone dans partie2-2-B.
+4. B ajoute Dossier_B/textB.txt et fait un commit local (hash: 330c1e5).
+5. B injecte une erreur dans Dossier_A/textA.txt et fait un commit local (hash: e0fa27c).
+6. B ajoute Dossier_B/textB2.txt et fait un commit local (hash: 73e7144).
+7. B pousse tous ses commits vers origin/main.
+8. A observe le problème et crée un issue sur GitHub :
+   - Titre: Supprimer la ligne "erreur injectée" dans Dossier_A/textA.txt
+   - Description: contexte, étapes de repro, résultat observé vs attendu
+   - Références: commit fautif e0fa27c, dernier commit sain 330c1e5
+9. B répond à l’issue en confirmant le commit fautif et le dernier commit sain.
+10. A utilise git revert pour revenir en arrière sans réécrire l’historique public :
+    git revert e0fa27c
+    Cela crée un nouveau commit de revert (hash: <HASH_REVERT>).
+11. A pousse la correction sur GitHub (main corrigée).
+12. B liste son historique local avec :
+    git log --oneline --graph --decorate --all > historique-B.txt
+13. B met à jour sa copie locale :
+    git pull --rebase origin main
+14. B vérifie que l’erreur a disparu et que Dossier_B/textB2.txt est bien présent.
+    Si nécessaire, B réapplique manuellement le changement légitime (textB2.txt).
+15. B fait un commit (si ré-appliqué) et pousse. Le dépôt est désormais corrigé et fonctionnel.
+
+Historique final attendu (simplifié) :
+* <HASH_REVERT> Revert "B: injection d'une ligne erronée dans textA.txt"
+* 73e7144 B: ajout Dossier_B/textB2.txt (changement légitime)
+* e0fa27c B: injection d'une ligne erronée dans textA.txt
+* 330c1e5 B: ajout Dossier_B/textB.txt
+* 766d44c A: structure initiale (Dossier_A/textA.txt)
