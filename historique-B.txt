@@ -1,0 +1,5 @@
+* 73b2a3a (origin/main, origin/HEAD) Revert "B: injection d'une ligne erronee dans textA.txt"
+* 73e7144 (HEAD -> main) B: ajout Dossier_B/textB2.txt(changement legiitime)
+* e0fa27c B: injection d'une ligne erronee dans textA.txt
+* 330c1e5 B: ajout Dossier_B/textB.txt
+* 766d44c A: structure initiale (Dossier_A/textA.txt)
